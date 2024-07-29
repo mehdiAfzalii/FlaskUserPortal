@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    {% if username %}
+        <div class="containe">
+            <h1 class="ok">Welcome To Your Profile {{ username.title() }}</h1>
+        </div>
+    {% elif message %}
+        <div class="container">
+            <h4>{{ message }}</h4>
+            <h1>Login</h1>
+            <form method="post" class="from">
+                <input type="text" name="username" placeholder="Enter Your Username:">
+                <input type="password" name="password" placeholder="Enter Your Password:">
+                <input type="submit" value="submit">
+            </form> 
+            <h4>if you don`t have account : <a href="{{ url_for('sign') }}">open account</a></h4>
+        </div>
+    {% else %}
+        <div class="container">
+            <h1>Login</h1>
+            <form method="post" class="from">
+                <input type="text" name="username" placeholder="Enter Your Username:">
+                <input type="password" name="password" placeholder="Enter Your Password:">
+                <input type="submit" value="submit">
+            </form> 
+            <h4>if you don`t have account : <a href="{{ url_for('sign') }}">open account</a></h4>
+        </div>
+    {% endif %}
+</body>
+</html>
